@@ -29,7 +29,7 @@ func main() {
 	defer config.CloseDatabaseConnection(db)
 	r := gin.Default()
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:8081"},
+		AllowOrigins:     []string{"*"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"},
 		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length"},
@@ -58,5 +58,7 @@ func main() {
 		bookRoutes.DELETE("/:id", bookController.Delete)
 	}
 
-	r.Run("192.168.1.18:8888")
+	r.Run()
 }
+
+//qq
